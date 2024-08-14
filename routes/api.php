@@ -8,6 +8,8 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\MatchController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\PlayerStatisticController;
+use App\Http\Controllers\TeamStatisticController;
 
 Route::get('/users', function (Request $request) {
     return response()->json([
@@ -40,3 +42,15 @@ Route::post('/contracts', [ContractController::class, 'store']);
 Route::get('/contracts/{id}', [ContractController::class, 'show']);
 Route::put('/contracts/{id}', [ContractController::class, 'update']);
 Route::get('/contracts', [ContractController::class, 'index']);
+
+// Rotas para estatísticas de jogadores
+Route::post('/player-statistics', [PlayerStatisticController::class, 'store']);
+Route::get('/player-statistics/{id}', [PlayerStatisticController::class, 'show']);
+Route::put('/player-statistics/{id}', [PlayerStatisticController::class, 'update']);
+Route::get('/player-statistics', [PlayerStatisticController::class, 'index']);
+
+// Rotas para estatísticas de equipes
+Route::post('/team-statistics', [TeamStatisticController::class, 'store']);
+Route::get('/team-statistics/{id}', [TeamStatisticController::class, 'show']);
+Route::put('/team-statistics/{id}', [TeamStatisticController::class, 'update']);
+Route::get('/team-statistics', [TeamStatisticController::class, 'index']);
